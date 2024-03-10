@@ -1,10 +1,12 @@
 import React from 'react'
 import Round_progress from './Round_progress'
+import Sidebar from './Sidebar'
 
 function Home() {
   return (
+   
     <div className='flex'>
-        
+        <Sidebar/>
         <Round_progress colour="green-500" value="01"/>
         <Round_progress colour="blue-500" value="02"/>
         <Round_progress colour="yellow-500" value="03"/>
