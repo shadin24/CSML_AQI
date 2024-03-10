@@ -5,7 +5,7 @@ import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, Hi
 function Component() {
   const sidebarStyle = {
     backgroundColor: '#191B1F', // Background color
-    width: '25%', // Set width to 25% of viewport width
+    width: '15%', // Set width to 25% of viewport width
     height: '100vh', // Set height to 100% of viewport height
     color: 'white', // Set font color to white
     
@@ -18,8 +18,8 @@ function Component() {
           <Sidebar.Item href="#" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards} label="Pro" labelColor="dark">
-            Kanban
+          <Sidebar.Item href="#" icon={HiViewBoards} >
+            City Map
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiInbox} label="3">
             Inbox

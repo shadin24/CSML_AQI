@@ -1,10 +1,14 @@
-import React from 'react'
-import Home from './components/Home'
 
-export default function App() {
+import React from 'react';
+import Layout from './Layout';
+import Home from './components/Home';
+
+const App = () => {
   return (
-    <div>
-      <Home/>
-    </div>
-  )
-}
+    <Layout>
+     <Home/>
+    </Layout>
+  );
+};
+
+export default App;
