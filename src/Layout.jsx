@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex">
       <Sidebar>
-        <NavLink to="/" activeClassName="active">
+        <NavLink to="/" Onacti="active">
           <SidebarItem icon={<LayoutDashboard size={20} />} text="Dashboard" />
         </NavLink>
         <NavLink to="/map" activeClassName="active">
