@@ -1,149 +1,52 @@
-import React from 'react'
-import classNames from "classnames";
-import {
-  chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4,
-} from "../variables/charts.js";
-import { Line, Bar } from "react-chartjs-2";
-import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Row,
-  Col,
-} from "reactstrap";
+import React, { useState } from 'react';
+import GraphComponent from './GraphComponent'; // Assuming GraphComponent is defined elsewhere
 
+const CardWithGraph = () => {
+  const [selectedGraph, setSelectedGraph] = useState('PM2.5'); // Initial selected graph
 
-function Graph() {
-
-  const [bigChartData, setbigChartData] = React.useState("data1");
-  const setBgChartData = (name) => {
-    setbigChartData(name);
+  const handleGraphChange = (graphName) => {
+    setSelectedGraph(graphName);
   };
-  return (
-    <div>
-        <Row>
-          <Col xs="12">
-            <Card className="card-chart">
-              <CardHeader>
-                <Row>
-                  <Col className="text-left" sm="6">
-                    <h5 className="card-category">Sensor</h5>
-                    <CardTitle tag="h2">Sensor Data</CardTitle>
-                  </Col>
-                  <Col sm="6">
-                    <ButtonGroup
-                      className="btn-group-toggle float-right"
-                      data-toggle="buttons"
-                    >
-                      <Button
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data1",
-                        })}
-                        color="info"
-                        id="0"
-                        size="sm"
-                        onClick={() => setBgChartData("data1")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          PM 2.5
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-single-02" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="1"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data2",
-                        })}
-                        onClick={() => setBgChartData("data2")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          PM 10
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-gift-2" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="2"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data3",
-                        })}
-                        onClick={() => setBgChartData("data3")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          CO
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="3"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data4",
-                        })}
-                        onClick={() => setBgChartData("data4")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          NO2
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
-                      </Button>
-                      <Button
-                        color="info"
-                        id="4"
-                        size="sm"
-                        tag="label"
-                        className={classNames("btn-simple", {
-                          active: bigChartData === "data5",
-                        })}
-                        onClick={() => setBgChartData("data5")}
-                      >
-                        <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          SO2
-                        </span>
-                        <span className="d-block d-sm-none">
-                          <i className="tim-icons icon-tap-02" />
-                        </span>
-                      </Button>
-                    </ButtonGroup>
-                  </Col>
-                </Row>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample1[bigChartData]}
-                    options={chartExample1.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-    </div>
- 
-  )
-}
 
-export default Graph
+  return (
+    <div className="p-4 border rounded shadow-md">
+      <div className="flex justify-end space-x-1">
+        <button 
+          className={`w-20 border ${selectedGraph === 'PM2.5' ? 'bg-indigo-100 text-indigo-500' : 'bg-white hover:bg-indigo-200 text-gray-700'} px-4 py-2 rounded focus:outline-none focus:border-blue-500`}
+          onClick={() => handleGraphChange('PM2.5')}
+        >
+          PM2.5
+        </button>
+        <button 
+          className={`w-20 border ${selectedGraph === 'PM10' ? 'bg-indigo-100 text-indigo-500' : 'bg-white hover:bg-indigo-200 text-gray-700'} px-4 py-2 rounded focus:outline-none focus:border-blue-500`}
+          onClick={() => handleGraphChange('PM10')}
+        >
+          PM10
+        </button>
+        <button 
+          className={`w-20 border ${selectedGraph === 'SO2' ? 'bg-indigo-100 text-indigo-500' : 'bg-white hover:bg-indigo-200 text-gray-700'} px-4 py-2 rounded focus:outline-none focus:border-blue-500`}
+          onClick={() => handleGraphChange('SO2')}
+        >
+          SO2
+        </button>
+        <button 
+          className={`w-20 border ${selectedGraph === 'CO' ? 'bg-indigo-100 text-indigo-500' : 'bg-white hover:bg-indigo-200 text-gray-700'} px-4 py-2 rounded focus:outline-none focus:border-blue-500`}
+          onClick={() => handleGraphChange('CO')}
+        >
+          CO
+        </button>
+        <button 
+          className={`w-20 border ${selectedGraph === 'NO2' ? 'bg-indigo-100 text-indigo-500' : 'bg-white hover:bg-indigo-200 text-gray-700'} px-4 py-2 rounded focus:outline-none focus:border-blue-500`}
+          onClick={() => handleGraphChange('NO2')}
+        >
+          NO2
+        </button>
+      </div>
+      <div className="mt-4">
+        <GraphComponent selectedGraph={selectedGraph} />
+      </div>
+    </div>
+  );
+};
+
+export default CardWithGraph;

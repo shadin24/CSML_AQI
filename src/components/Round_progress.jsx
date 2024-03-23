@@ -3,7 +3,7 @@ import React from 'react'
 function Round_progress({colour,value,border}) {
   return (
     <div>
-        <div className="w-max relative m-8">
+        <div class="w-max relative m-14"> 
           <div className={`bg-white rounded-full p-1 border-2 ${border}`}>
             <div className={`${colour} p-3 rounded-full`}>
               <div className="bg-white rounded-full w-24 h-24 flex flex-col justify-center items-center">
