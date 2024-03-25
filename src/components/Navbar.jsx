@@ -3,7 +3,7 @@ function Navbar(){
   return (
     <div className="flex justify-between h-14 w-full p-5 items-center border-b">
       <div className="  text-gray-600">
-      <p><b>DASHBOARD</b></p>
+      <p><b>Dashboard</b></p>
       </div>
       <div>
         <input

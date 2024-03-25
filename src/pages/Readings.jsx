@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardBody } from 'reactstrap';
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default function Readings() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
   const metroStations = [
     { title: "Aluva", aqi: 50, pm25: 10, pm10: 20, no2: 5, so2: 3 },
     { title: "Ambattukavu", aqi: 100, pm25: 20, pm10: 30, no2: 8, so2: 4 },
@@ -31,8 +39,17 @@ export default function Readings() {
 
   return (
     <div className="p-5 overflow-x-auto">
+       <DatePicker
+              selected={selectedDate}
+              onChange={handleDateChange}
+              dateFormat="dd/MM/yyyy"
+              className="m-2 border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:border-blue-500"
+            />
       <Card className="rounded-lg shadow-lg border">
         <CardBody>
+          <div className="mb-4">
+           
+          </div>
           <div className="overflow-x-auto">
             <Table className="text-sm">
               <TableHead>
